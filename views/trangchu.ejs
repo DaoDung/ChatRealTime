@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Telegram</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+    <script src="jquery.js"></script>
+    <script src="/socket.io/socket.io.js"></script>
+    <link rel="stylesheet" type="text/css" href="layout.css" />
+    <link rel="stylesheet" type="text/css" href="login.css" />
+    <link rel="stylesheet" type="text/css" href="styles.css" />
+    <style>
+      .mensajes{
+          background: #ddd;
+          border: 1px solid #333;
+          padding: .5em .1em;
+          min-height: 300px;
+          margin-bottom:20px
+      }
+      img{
+          height: 200px;
+      }
+    </style>
+  </head>
+  <body>
+
+  <div id="wrapper">
+    <div id="loginForm">
+      <div class="container">
+          <div class="row">
+              <div class="col-lg-3 col-md-2"></div>
+              <div class="col-lg-6 col-md-8 login-box">
+                  <div class="col-lg-12 login-key">
+                      <i class="fa fa-key" aria-hidden="true"></i>
+                  </div>
+                  <div class="col-lg-12 login-title">
+                    USERNAME
+                  </div>
+
+                  <div class="col-lg-12 login-form">
+                      <div class="col-lg-12 login-form">
+                          <form>
+                              <div class="form-group">
+                                  <label class="form-control-label">USERNAME</label>
+                                  <input type="text" id="username" class="form-control">
+                              </div>
+                              <div class="col-lg-12 loginbttm">
+                                  <div class="col-lg-6 login-btm login-text">
+                                      <!-- Error Message -->
+                                  </div>
+                                  <div class="col-lg-6 login-btm login-button">
+                                      <input type="button" value="Register" id="btnRegister" />
+                                  </div>
+                              </div>
+                          </form>
+                      </div>
+                  </div>
+                  <div class="col-lg-3 col-md-2"></div>
+              </div>
+          </div>
+      </div> 
+    </div>
+    <div id="chatForm">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-12">
+            <div align="center"><h3 id="ten"></h3></div>
+            <hr>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-3 list-user">
+              <div class="well">
+                <h3>Đang online</h3>
+                <ul class="list-group" id="users">
+                  
+                </ul>
+              </div>
+   
+          </div>
+          <div class="col-md-7 sidebar">
+            <div class="chat" id="chat"></div>
+            <form id="messageForm">
+              <div class="toRoom"></div>
+              <div class="form-group">
+                <label for="">Enter Messgae</label>
+                <textarea class="form-control" id="message"></textarea>
+                <br/>
+                <input type="button" class="btn btn-primary" id="btnSend" value="Send">
+                <input id="fileSelector" type="file">
+                <img id="review" width="600"></img>
+                <img id="showPhoto" src="">
+              </div>
+            </form>
+          </div>
+          <div class="col-md-2">
+              <div class="panel panel-info ">
+                <div class="panel-heading">
+                  <h3 class="panel-title">Phòng</h3>
+                  <ul id="rooms" class="list-group">
+
+                  </ul>
+                </div>
+                <div class="panel-body tao-phong">
+                    <label class="form-control-label">Tên phòng</label>
+                  <div class="form-group">
+                      <input type="text" class="form-control" id="roomName">
+                      <input type="button" class="btn btn-primary" id="btnRoom" value="Tạo">
+                  </div>
+
+                </div>
+              </div>
+          </div>	
+        </div>
+      </div>
+      <div class="mensajes">
+
+      </div>
+      <input type="text" id="mensaje">
+      <input type="file" id="imagefile">
+      <button type="button" id="enviar">Enviar Mensaje</button>
+    </div>
+    <script src="/xuly.js"></script>
+  </div>
+
+  </body>
+</html>

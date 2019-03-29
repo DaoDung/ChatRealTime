@@ -1,0 +1,20 @@
+#chatForm{
+    margin-top: 100px;
+}
+
+#users li i{
+    float: right;
+    color: #4CAF50;
+}
+.tao-phong .form-group{
+    margin-bottom: 10px;
+}
+
+.tao-phong input:first-child{
+    width: 70%;
+    float: left;
+}
+.tao-phong input:last-child{
+    width: 27%;
+    float: right;
+}
