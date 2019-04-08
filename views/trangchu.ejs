@@ -4,28 +4,20 @@
     <meta charset="utf-8">
     <title>Telegram</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
     <script src="jquery.js"></script>
     <script src="/socket.io/socket.io.js"></script>
     <link rel="stylesheet" type="text/css" href="layout.css" />
     <link rel="stylesheet" type="text/css" href="login.css" />
     <link rel="stylesheet" type="text/css" href="styles.css" />
     <style>
-      .mensajes{
-          background: #ddd;
-          border: 1px solid #333;
-          padding: .5em .1em;
-          min-height: 300px;
-          margin-bottom:20px
-      }
-      img{
-          height: 200px;
-      }
+
     </style>
   </head>
   <body>
 
   <div id="wrapper">
+    <!--Start_Login-->
     <div id="loginForm">
       <div class="container">
           <div class="row">
@@ -35,7 +27,7 @@
                       <i class="fa fa-key" aria-hidden="true"></i>
                   </div>
                   <div class="col-lg-12 login-title">
-                    USERNAME
+                    TELEGRAM
                   </div>
 
                   <div class="col-lg-12 login-form">
@@ -59,41 +51,57 @@
                   <div class="col-lg-3 col-md-2"></div>
               </div>
           </div>
-      </div> 
-    </div>
+      </div>
+    </div><!--End_Login-->
+    <!--Start-Chat-->
     <div id="chatForm">
       <div class="container">
+        <!--Start_Header_Chat-->
         <div class="row">
           <div class="col-md-12">
-            <div align="center"><h3 id="ten"></h3></div>
+            <div align="center"><h3>Username: </h3><h3 id="ten" style="color: blue;"></h3></div>
             <hr>
           </div>
-        </div>
+        </div><!--End_Header_Chat-->
+
+        <!--Start_Container_Chat-->
         <div class="row">
-          <div class="col-md-3 list-user">
-              <div class="well">
-                <h3>Đang online</h3>
-                <ul class="list-group" id="users">
-                  
-                </ul>
+          <!--Start_ListUsers-->
+          <div class="col-md-3 ">
+            <div class="inbox_people">
+              <div class="headind_srch">
+                <div class="recent_heading">
+                  <h5>Đang online</h5>
+                </div>
+                <div class="srch_bar">
+                  <div class="stylish-input-group">
+                    <input type="text" class="search-bar"  placeholder="Search" >
+                    <span class="input-group-addon">
+                    <button type="button"> <i class="fa fa-search" aria-hidden="true"></i> </button>
+                    </span> </div>
+                </div>
               </div>
-   
-          </div>
-          <div class="col-md-7 sidebar">
-            <div class="chat" id="chat"></div>
-            <form id="messageForm">
-              <div class="toRoom"></div>
-              <div class="form-group">
-                <label for="">Enter Messgae</label>
-                <textarea class="form-control" id="message"></textarea>
-                <br/>
-                <input type="button" class="btn btn-primary" id="btnSend" value="Send">
-                <input id="fileSelector" type="file">
-                <img id="review" width="600"></img>
-                <img id="showPhoto" src="">
+              <div class="inbox_chat" id="users">
+
               </div>
-            </form>
-          </div>
+            </div>
+          </div><!--End_ListUsers-->
+          <!--Start_ContentChat-->
+          <div class="col-md-7">
+            <div class="mesgs">
+              <div class="msg_history" id="msg_history">
+
+              </div>
+              <div class="type_msg">
+                <div class="input_msg_write">
+                  <input type="text" class="" placeholder="Type a message" id="message"/>
+                  <button class="msg_send_btn" type="button" id="btnSend"><i class="far fa-paper-plane"></i></button>
+                  <input id="fileSelector" type="file">
+                </div>
+              </div>
+            </div>
+          </div><!--End_ContentChat-->
+          <!--Start_Rooms-->
           <div class="col-md-2">
               <div class="panel panel-info ">
                 <div class="panel-heading">
@@ -111,18 +119,12 @@
 
                 </div>
               </div>
-          </div>	
+          </div><!--End_Rooms-->
         </div>
+        <!--Start_Container_Chat-->
       </div>
-      <div class="mensajes">
-
-      </div>
-      <input type="text" id="mensaje">
-      <input type="file" id="imagefile">
-      <button type="button" id="enviar">Enviar Mensaje</button>
     </div>
+    <!--End-Chat-->
     <script src="/xuly.js"></script>
-  </div>
-
   </body>
 </html>

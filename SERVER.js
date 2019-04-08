@@ -28,15 +28,14 @@ io.on("connection", function(socket){
   });
   // Send Message
   socket.on('send message', function(data){
-    console.log("Send"+socket.Phong);
+
     if(socket.Phong){
-      console.log("1"+socket.Phong);
       io.sockets.in(socket.Phong).emit("new message", {msg: data, user: socket.username});
     }
     else{
       socket.emit("chua chon phong", data);
     }
-  
+
   });
   // New user
   socket.on('new user',function(data){
@@ -58,15 +57,30 @@ io.on("connection", function(socket){
     socket.Phong=data;
     socket.join(data);
     console.log('socket.Phong'+socket.Phong)
-    
+
   });
 
-  socket.on('user image', function(image) {
-    console.log('da nhan dc anh');
-    console.log(image);
-    io.sockets.emit('addimage','Imagen Compartida:', image);
-    
-  })
+  socket.on('change image', function(image) {
+    if(socket.Phong){
+        io.sockets.in(socket.Phong).emit('addimage',{user: socket.username, image: image});
+    }
+    else{
+      socket.emit("chua chon phong", image);
+    }
+
+
+  });
+
+  socket.on("toi-dang-go-chu", function(){
+    if(socket.Phong){
+      io.sockets.in(socket.Phong).emit("ai-do-dang-go-chu", {user: socket.username});
+    }
+  });
+  socket.on("toi-stop-go-chu", function(){
+    if(socket.Phong){
+      io.sockets.in(socket.Phong).emit("ai-do-STOP-go-chu");
+    }
+  });
 });
 
 function UpdateUsernames(){
@@ -75,4 +89,3 @@ function UpdateUsernames(){
 function UpdateRooms(){
   io.sockets.emit('get rooms',Room)
 }
-
