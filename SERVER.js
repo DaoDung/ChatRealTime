@@ -1,6 +1,6 @@
 var express = require("express");
 var path = require("path");
-
+var PORT = process.env.PORT || 3111
 var app = express();
 
 app.use(express.static("public"));
@@ -11,7 +11,7 @@ app.get("/", function(req, res){
 });
 var server = require("http").Server(app);
 var io = require("socket.io")(server);
-server.listen(3111);
+server.listen(PORT);
 
 var Users=[];
 var connection=[];
